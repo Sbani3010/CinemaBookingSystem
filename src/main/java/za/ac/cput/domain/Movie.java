@@ -1,3 +1,7 @@
+/* Movie.java
+ Entity for the Movie
+ Author: Sbani Sithole (219446563)
+*/
 package za.ac.cput.domain;
 
 public class Movie {
@@ -12,12 +16,12 @@ public class Movie {
     }
 
     private Movie(Builder builder) {
-        this.id= builder.id;
-        this.title= builder.title;
-        this.description= builder.description;
-        this.director= builder.director;
-        this.length= builder.length;
-        this.genre= builder.genre;
+        this.id = builder.id;
+        this.title = builder.title;
+        this.description = builder.description;
+        this.director = builder.director;
+        this.length = builder.length;
+        this.genre = builder.genre;
     }
 
     public String getId() {
@@ -82,7 +86,7 @@ public class Movie {
             return this;
         }
 
-        public Movie build(){
+        public Movie build() {
             return new Movie(this);
         }
     }
