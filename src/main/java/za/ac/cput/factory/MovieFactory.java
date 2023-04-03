@@ -1,5 +1,8 @@
+/* MovieFactory.java
+ Entity for the Movie
+ Author: Sbani Sithole (219446563)
+*/
 package za.ac.cput.factory;
-
 import za.ac.cput.domain.Movie;
 import za.ac.cput.util.Helper;
 
