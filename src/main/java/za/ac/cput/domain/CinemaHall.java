@@ -1,3 +1,10 @@
+/*  CinemaHall.java
+ Entity for the CinemaHall
+ Author: Twala Nthabiseng Celesta(221361936)
+ Date: 03 April 2023
+*/
+
+
 package za.ac.cput.domain;
 
 import java.util.Arrays;
