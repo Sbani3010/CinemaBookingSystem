@@ -63,6 +63,14 @@ public class Rating {
             this.user = user;
             return this;
         }
+           public Builder copy(Rating rating){
+                this.id = rating.id;
+                this.score = rating.score;
+                this.movie = rating.movie;
+                this.user = rating.user;
+                return this;
+
+            }
 
         public Rating build()  {
             return new Rating (this);
