@@ -10,7 +10,7 @@ public class ProofOfPayment {
     private ProofOfPayment() {
     }
 
-    public ProofOfPayment(Builder builder) {
+    private ProofOfPayment(Builder builder) {
         this.id = builder.id;
         this.user = builder.user;
         this.amount = builder.amount;
