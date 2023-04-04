@@ -76,7 +76,17 @@ public class Address {
             return this;
         }
 
+        public Builder copy(Address address){
+            this.id = address.id;
+            this.street = address.street;
+            this.city = address.city;
+            this.country = address.country;
+            this.zipCode = address.zipCode;
+            return this;
+        }
+
         public Address build(){
+
             return new Address(this);
         }
     }

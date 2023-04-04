@@ -41,6 +41,12 @@ public class Invoice {
             return this;
         }
 
+        public  Builder copy(Invoice invoice){
+            this.id = invoice.id;
+            this.booking = invoice.booking;
+            return this;
+        }
+
         public Invoice build(){
             return new Invoice(this);
         }
