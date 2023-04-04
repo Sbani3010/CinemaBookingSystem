@@ -1,3 +1,7 @@
+/* ProofOfPayment.java
+ Entity for the  ProofOfPayment
+ Author: Sbani Sithole (219446563)
+*/
 package za.ac.cput.util;
 
 import com.fasterxml.uuid.Generators;
