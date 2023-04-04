@@ -44,6 +44,17 @@ public class User {
         return password;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
     public static class Builder {
         private String id;
         private String firstName;
@@ -76,7 +87,12 @@ public class User {
             return this;
         }
 
-        public Builder copy() {
+        public Builder copy(User user) {
+            this.id = user.id;
+            this.firstName = user.firstName;
+            this.lastName = user.lastName;
+            this.email = user.email;
+            this.password = user.password;
             return this;
         }
 
