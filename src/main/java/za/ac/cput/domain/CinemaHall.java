@@ -20,7 +20,7 @@ public class CinemaHall {
 
     private CinemaHall(){}
 
-    public CinemaHall(Builder builder){
+    private CinemaHall(Builder builder){
         this.id= builder.id;
         this.name= builder.name;
         this.capacity= builder.capacity;

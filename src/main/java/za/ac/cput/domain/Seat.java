@@ -11,6 +11,7 @@ public class Seat {
     private int row;
     private int number;
     private Seat(){}
+
     private Seat(Builder builder){
         this.id= builder.id;
         this.row= builder.row;
@@ -27,6 +28,15 @@ public class Seat {
 
     public int getNumber() {
         return number;
+    }
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "id='" + id + '\'' +
+                ", row=" + row +
+                ", number=" + number +
+                '}';
     }
 
     public static class Builder{
@@ -46,6 +56,13 @@ public class Seat {
 
         public Builder setNumber(int number) {
             this.number = number;
+            return this;
+        }
+
+        public Builder copy(Seat seat){
+            this.id = seat.id;
+            this.row = seat.row;
+            this.number = seat.number;
             return this;
         }
 
