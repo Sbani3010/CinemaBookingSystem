@@ -34,7 +34,7 @@ public class ShowTime {
             return this;
         }
 
-        public Builder setData(Date date) {
+        public Builder setDate(Date date) {
             this.date = date;
             return this;
         }
