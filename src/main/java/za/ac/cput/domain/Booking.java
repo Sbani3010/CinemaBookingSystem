@@ -14,17 +14,17 @@ public class Booking {
     private Seat[] seats;
     private User user;
     private CinemaHall cinemaHall;
-    private Payment payment;
+    private Snack[] snacks;
 
     private Booking(){}
 
-    public Booking (Builder builder){
+    private Booking (Builder builder){
        this.id = builder.id;
        this.showTime = builder.showTime;
        this.seats = builder.seats;
        this.user = builder.user;
        this.cinemaHall = builder.cinemaHall;
-       this.payment = builder.payment;
+       this.snacks = builder.snacks;
     }
 
     public String getId() {
@@ -47,8 +47,8 @@ public class Booking {
         return cinemaHall;
     }
 
-    public Payment getPayment() {
-        return payment;
+    public Snack[] getSnacks() {
+        return snacks;
     }
 
     @Override
@@ -59,21 +59,17 @@ public class Booking {
                 ", seats=" + Arrays.toString(seats) +
                 ", user=" + user +
                 ", cinemaHall=" + cinemaHall +
-                ", payment=" + payment +
+                ", snacks=" + Arrays.toString(snacks) +
                 '}';
     }
-   public static class Builder{
+
+    public static class Builder{
        private String id;
        private ShowTime showTime;
        private User user;
        private Seat[] seats;
        private CinemaHall cinemaHall;
-       private Payment payment;
-
-       public Builder setPayment(Payment payment){
-           this.payment= payment;
-           return this;
-       }
+       private Snack[] snacks;
         public Builder setId(String id){
            this.id=id;
            return this;
@@ -81,6 +77,10 @@ public class Booking {
         public Builder setSeats(Seat[] seats){
            this.seats= seats;
            return this;
+       }
+       public Builder setSnacks(Snack[] snacks){
+            this.snacks=snacks;
+            return this;
        }
         public Builder setCinemaHall(CinemaHall cinemaHall){
            this.cinemaHall= cinemaHall;
@@ -99,7 +99,7 @@ public class Booking {
            this.user = booking.user;
            this.seats = booking.seats;
            this.cinemaHall = booking.cinemaHall;
-           this.payment = booking.payment;
+           this.snacks = booking.snacks;
            this.showTime = booking.showTime;
            return this; }
        public Booking build(){
