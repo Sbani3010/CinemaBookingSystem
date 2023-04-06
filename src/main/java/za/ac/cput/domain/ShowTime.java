@@ -50,4 +50,8 @@ public class ShowTime {
             return new ShowTime(this);
         }
     }
+
+       public String getId(){
+        return id;
+       }
 }
