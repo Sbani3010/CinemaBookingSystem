@@ -7,11 +7,16 @@ package za.ac.cput.repository;
 import za.ac.cput.domain.ProofOfPayment;
 import za.ac.cput.util.Helper;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class ProofOfPaymentRepository implements IProofOfPaymentRepository {
     private static ProofOfPaymentRepository repository = null;
     private Set<ProofOfPayment> proofOfPayments = null;
+
+    private ProofOfPaymentRepository() {
+        proofOfPayments = new HashSet<>();
+    }
 
     public static ProofOfPaymentRepository getRepository() {
         if (Helper.isNullOrEmpty(repository))
