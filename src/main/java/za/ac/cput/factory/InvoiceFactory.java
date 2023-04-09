@@ -1,5 +1,12 @@
+/*
+ * InvoiceFactory.java
+ * Factory for Invoice
+ * Author: Sinethemba Sithela 219112940
+ * Date: 04/04/2023
+ */
 package za.ac.cput.factory;
 
+import za.ac.cput.domain.Booking;
 import za.ac.cput.domain.Invoice;
 import za.ac.cput.util.Helper;
 
