@@ -86,6 +86,16 @@ public class Movie {
             return this;
         }
 
+        public Builder copy(Movie movie) {
+            this.id = movie.id;
+            this.title = movie.title;
+            this.description = movie.description;
+            this.genre = movie.genre;
+            this.director = movie.director;
+            this.length = movie.length;
+            return this;
+        }
+
         public Movie build() {
             return new Movie(this);
         }
