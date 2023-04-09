@@ -6,7 +6,7 @@ package za.ac.cput.domain;
 public class Snack {
     private String id;
     private String name;
-    private String price;
+    private double price;
 
     private Snack() {
     }
@@ -20,7 +20,7 @@ public class Snack {
     public static class Builder {
         private String id;
         private String name;
-        private String price;
+        private double price;
 
         public Builder setId(String id) {
             this.id = id;
@@ -32,7 +32,7 @@ public class Snack {
             return this;
         }
 
-        public Builder setPrice(String price) {
+        public Builder setPrice(double price) {
             this.price = price;
             return this;
         }

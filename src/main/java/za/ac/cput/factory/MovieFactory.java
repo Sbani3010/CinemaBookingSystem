@@ -8,6 +8,7 @@ import za.ac.cput.domain.Movie;
 import za.ac.cput.util.Helper;
 
 public class MovieFactory {
+
     public static Movie createMovie(String title, String description, String genre, String director, double length) {
         if (Helper.isNullOrEmpty(title) || Helper.isNullOrEmpty(description) || Helper.isNullOrEmpty(director))
             return null;
