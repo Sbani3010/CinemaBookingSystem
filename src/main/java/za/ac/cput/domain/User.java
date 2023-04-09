@@ -28,11 +28,11 @@ public class User {
         return id;
     }
 
-    public String getfName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public String getlName() {
+    public String getLastName() {
         return lastName;
     }
 
@@ -67,12 +67,12 @@ public class User {
             return this;
         }
 
-        public Builder setfName(String fName) {
+        public Builder setfirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder setlName(String lName) {
+        public Builder setlastName(String lastName) {
             this.lastName = lastName;
             return this;
         }

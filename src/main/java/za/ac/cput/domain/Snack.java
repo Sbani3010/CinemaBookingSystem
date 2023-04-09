@@ -17,6 +17,10 @@ public class Snack {
         this.price = builder.price;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public static class Builder {
         private String id;
         private String name;
