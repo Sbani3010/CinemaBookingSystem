@@ -1,3 +1,7 @@
+/*  Booking.java
+ Author: Twala Nthabiseng Celesta(221361936)
+ Date: 04 April 2023
+*/
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.*;
