@@ -18,7 +18,7 @@ public class TestObjects {
     public static Snack snack=SnackFactory.createSnack(50.0,"popcorn");
     private static Seat[] seats={seat};
     private static Snack[] snacks={snack};
-    public static ShowTime showTime=ShowTimeFactory.createShowTime(movie,new Date());
+    public static ShowTime showTime=ShowTimeFactory.createShowTime(movie,new Date(2023 - 1900, 6, 10, 20, 0, 0));
     public static CinemaHall cinemaHall=CinemaHallFactory.createCinemaHall("nu metro",100,10,seats,showTime,address);
     public static Booking booking=BookingFactory.createBooking(showTime, seats,cinemaHall,user,snacks);
     public static Ticket ticket= za.ac.cput.Factory.TicketFactory.createTicket(200,seat,user,movie);
