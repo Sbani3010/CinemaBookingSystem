@@ -33,12 +33,12 @@ public class SnackRepository implements ISnackRepository{
     }
 
     @Override
-    public boolean update(Snack obj) {
-         Snack oldSnack = read(obj.getId());
+    public boolean update(Snack snack) {
+         Snack oldSnack = read(snack.getId());
          if (Helper.isNullOrEmpty(oldSnack))
         return false;
          snacks.remove(oldSnack);
-         return snacks.add(obj);
+         return snacks.add(snack);
     }
 
     @Override

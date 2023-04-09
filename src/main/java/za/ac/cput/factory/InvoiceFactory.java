@@ -1,5 +1,6 @@
 package za.ac.cput.factory;
 
+import za.ac.cput.domain.Booking;
 import za.ac.cput.domain.Invoice;
 import za.ac.cput.util.Helper;
 

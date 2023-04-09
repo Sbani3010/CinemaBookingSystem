@@ -20,8 +20,8 @@ public class UserFactory {
            return null;
        }
 
-       return new User.Builder().setfName(firstName)
-               .setlName(lastName)
+       return new User.Builder().setfirstName(firstName)
+               .setlastName(lastName)
                .setId(userId)
                .setEmail(email)
                .setPassword(password)
