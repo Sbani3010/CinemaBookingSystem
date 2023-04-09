@@ -1,3 +1,10 @@
+/*SeatRepositoryTest.java
+ * Test For the SeatRepository
+ * Author: Lehlogonolo Rakgetse (22017954)
+ * Date : 09 April 2023
+ * */
+
+
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.Test;
