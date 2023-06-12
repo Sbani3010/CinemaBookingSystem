@@ -1,8 +1,8 @@
-package za.ac.cput.Service.Impl;
+package za.ac.cput.service.impl;
 
-import za.ac.cput.Service.BookingService;
+import za.ac.cput.service.BookingService;
 import za.ac.cput.domain.Booking;
-import za.ac.cput.repository.BookingRepository;
+import za.ac.cput.repository.impl.BookingRepository;
 
 import java.util.Set;
 
@@ -29,9 +29,9 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public boolean update(Booking booking) {
-        boolean updated= repository.update(booking);
-        return updated;
+    public Booking update(Booking booking) {
+        return repository.update(booking);
+
     }
 
     @Override

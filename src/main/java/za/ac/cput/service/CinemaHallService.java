@@ -1,4 +1,4 @@
-package za.ac.cput.Service;
+package za.ac.cput.service;
 
 
 import za.ac.cput.domain.CinemaHall;
@@ -8,7 +8,7 @@ import java.util.Set;
 public interface CinemaHallService {
 
     CinemaHall create(CinemaHall cinemaHall);
-    boolean update(CinemaHall  cinemaHall);
+    CinemaHall update(CinemaHall  cinemaHall);
 
     CinemaHall read(String id);
     boolean delete(String id);

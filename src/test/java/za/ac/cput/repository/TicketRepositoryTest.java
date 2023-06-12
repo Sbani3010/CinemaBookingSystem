@@ -6,6 +6,7 @@ Luphiwe Sikupela(216060133)
 06/April/2023
  */
 import org.junit.jupiter.api.Test;
+import za.ac.cput.repository.impl.TicketRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

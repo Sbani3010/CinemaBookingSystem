@@ -5,6 +5,7 @@
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.repository.impl.ProofOfPaymentRepository;
 import za.ac.cput.util.TestObjects;
 
 import static org.junit.jupiter.api.Assertions.*;

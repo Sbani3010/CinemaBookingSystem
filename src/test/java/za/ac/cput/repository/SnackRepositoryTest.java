@@ -1,6 +1,7 @@
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.repository.impl.SnackRepository;
 import za.ac.cput.util.TestObjects;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SnackRepositoryTest {
     @Test
     void create_test(){
-        assertEquals(true,SnackRepository.getRepository().create(TestObjects.snack));
+        assertEquals(true, SnackRepository.getRepository().create(TestObjects.snack));
     }
     @Test
     void read_test(){

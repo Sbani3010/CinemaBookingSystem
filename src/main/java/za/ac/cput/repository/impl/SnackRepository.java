@@ -1,6 +1,7 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Snack;
+import za.ac.cput.repository.ISnackRepository;
 import za.ac.cput.util.Helper;
 
 import java.util.HashSet;
@@ -26,10 +27,10 @@ public class SnackRepository implements ISnackRepository {
     }
 
     @Override
-    public boolean create(Snack obj) {
+    public Snack create(Snack obj) {
         if (Helper.isNullOrEmpty(obj))
-            return false;
-        return snacks.add(obj);
+            return null;
+        return snacks.add(obj)?obj:null;
     }
 
     @Override
@@ -40,12 +41,12 @@ public class SnackRepository implements ISnackRepository {
     }
 
     @Override
-    public boolean update(Snack obj) {
+    public Snack update(Snack obj) {
         Snack oldSnack = read(obj.getId());
         if (Helper.isNullOrEmpty(oldSnack))
-            return false;
+            return null;
         snacks.remove(oldSnack);
-        return snacks.add(obj);
+        return snacks.add(obj)?obj:null;
     }
 
     @Override

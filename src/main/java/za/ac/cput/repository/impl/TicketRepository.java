@@ -1,4 +1,4 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 /*
 TicketRepository.java
 TicketRepository  class.
@@ -7,6 +7,7 @@ Luphiwe Sikupela(216060133)
  */
 
 import za.ac.cput.domain.Ticket;
+import za.ac.cput.repository.ITicketRepository;
 import za.ac.cput.util.Helper;
 
 import java.util.HashSet;
@@ -29,10 +30,10 @@ public class TicketRepository implements ITicketRepository {
 
 
     @Override
-    public boolean create(Ticket obj) {
+    public Ticket create(Ticket obj) {
         if (Helper.isNullOrEmpty(obj))
-            return false;
-        return tickets.add(obj);
+            return null;
+        return tickets.add(obj)?obj:null;
     }
 
     @Override
@@ -44,12 +45,12 @@ public class TicketRepository implements ITicketRepository {
 
 
     @Override
-    public boolean update(Ticket obj) {
+    public Ticket update(Ticket obj) {
         Ticket ticket1 = read(obj.getId());
         if (Helper.isNullOrEmpty(ticket1))
-            return false;
+            return null;
         tickets.remove(ticket1);
-        return tickets.add(obj);
+        return tickets.add(obj)?obj:null;
     }
 
     @Override

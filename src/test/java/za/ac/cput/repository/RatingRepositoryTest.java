@@ -7,6 +7,7 @@ Luphiwe Sikupela(216060133)
  */
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.repository.impl.RatingRepository;
 
 
 import static org.junit.jupiter.api.Assertions.*;

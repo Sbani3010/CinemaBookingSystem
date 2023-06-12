@@ -5,6 +5,7 @@
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.repository.impl.CinemaHallRepository;
 import za.ac.cput.util.TestObjects;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CinemaHallRepositoryTest {
 @Test
     void creat_test(){
-    assertEquals(true,CinemaHallRepository.getRepository().create(TestObjects.cinemaHall));
+    assertEquals(true, CinemaHallRepository.getRepository().create(TestObjects.cinemaHall));
 }
 @Test
     void read_test(){

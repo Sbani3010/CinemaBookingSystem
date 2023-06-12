@@ -4,9 +4,10 @@
  * Author: Sinethemba Sithela 219112940
  * Date: 04/04/2023
  */
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Address;
+import za.ac.cput.repository.IAddressRepository;
 import za.ac.cput.util.Helper;
 
 import java.util.HashSet;
@@ -27,10 +28,10 @@ public class AddressRepository implements IAddressRepository {
     }
 
     @Override
-    public boolean create (Address address){
+    public Address create (Address address){
         if (Helper.isNullOrEmpty(address))
-            return false;
-        return addresses.add(address);
+            return null;
+        return addresses.add(address)?address:null;
     }
 
     @Override
@@ -41,10 +42,10 @@ public class AddressRepository implements IAddressRepository {
     }
 
     @Override
-    public boolean update(Address address) {
+    public Address update(Address address) {
         Address address1 = read(address.getId());
         addresses.remove(address1);
-        return addresses.add(address);
+        return addresses.add(address)?address:null;
     }
 
     @Override

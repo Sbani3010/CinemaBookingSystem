@@ -7,7 +7,8 @@ package za.ac.cput.repository;
 import za.ac.cput.domain.Movie;
 
 import java.util.List;
+import java.util.Set;
 
 public interface IMovieRepository extends IRepository<Movie,String>{
-    List<Movie> getAll();
+    Set<Movie> getAll();
 }

@@ -1,4 +1,4 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 /*
 RatingRepository.java
 RatingRepository  class.
@@ -8,12 +8,13 @@ Luphiwe Sikupela(216060133)
 
 
 import za.ac.cput.domain.Rating;
+import za.ac.cput.repository.IRatingRepository;
 import za.ac.cput.util.Helper;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class RatingRepository implements IRatingRepository{
+public class RatingRepository implements IRatingRepository {
 
     private static RatingRepository repository = null;
     private static Set<Rating> ratings = null;
@@ -29,10 +30,10 @@ public class RatingRepository implements IRatingRepository{
     }
 
     @Override
-    public boolean create (Rating rating){
+    public Rating create (Rating rating){
         if (Helper.isNullOrEmpty(rating))
-            return false;
-        return ratings.add(rating);
+            return null;
+        return ratings.add(rating)?rating:null;
     }
 
     @Override
@@ -43,10 +44,10 @@ public class RatingRepository implements IRatingRepository{
     }
 
     @Override
-    public boolean update(Rating rating) {
+    public Rating update(Rating rating) {
         Rating rating1 = read(rating.getId());
         ratings.remove(rating1);
-        return ratings.add(rating);
+        return ratings.add(rating)?rating:null;
     }
 
     @Override

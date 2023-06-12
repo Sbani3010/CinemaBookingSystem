@@ -4,15 +4,16 @@
  * Date : 06 April 2023
  * */
 
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.User;
+import za.ac.cput.repository.IUserRepository;
 import za.ac.cput.util.Helper;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class UserRepository implements IUserRepository{
+public class UserRepository implements IUserRepository {
     private static UserRepository repository = null;
     private Set<User> users = null;
 
@@ -28,10 +29,10 @@ public class UserRepository implements IUserRepository{
     }
 
     @Override
-    public boolean create(User user) {
+    public User create(User user) {
         if (Helper.isNullOrEmpty(user))
-            return false;
-        return users.add(user);
+            return null;
+        return users.add(user)?user:null;
     }
 
     @Override
@@ -42,12 +43,12 @@ public class UserRepository implements IUserRepository{
     }
 
     @Override
-    public boolean update(User user) {
+    public User update(User user) {
         User oldUser = read(user.getId());
         if (Helper.isNullOrEmpty(oldUser))
-            return false;
+            return null;
         users.remove(oldUser);
-        return users.add(user);
+        return users.add(user)?user:null;
     }
 
     @Override

@@ -2,9 +2,10 @@
  IRepository interface
  Author: Sbani Sithole (219446563)
 */
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.ProofOfPayment;
+import za.ac.cput.repository.IProofOfPaymentRepository;
 import za.ac.cput.util.Helper;
 
 import java.util.HashSet;
@@ -31,10 +32,10 @@ public class ProofOfPaymentRepository implements IProofOfPaymentRepository {
     }
 
     @Override
-    public boolean create(ProofOfPayment obj) {
+    public ProofOfPayment create(ProofOfPayment obj) {
         if (Helper.isNullOrEmpty(obj))
-            return false;
-        return proofOfPayments.add(obj);
+            return null;
+        return proofOfPayments.add(obj)?obj:null;
     }
 
     @Override
@@ -45,12 +46,12 @@ public class ProofOfPaymentRepository implements IProofOfPaymentRepository {
     }
 
     @Override
-    public boolean update(ProofOfPayment obj) {
+    public ProofOfPayment update(ProofOfPayment obj) {
         ProofOfPayment oldPayment = read(obj.getId());
         if (Helper.isNullOrEmpty(oldPayment))
-            return false;
+            return null;
         proofOfPayments.remove(oldPayment);
-        return proofOfPayments.add(obj);
+        return proofOfPayments.add(obj)?obj:null;
     }
 
     @Override

@@ -4,14 +4,15 @@
  * Date : 06 April 2023
  * */
 
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Seat;
+import za.ac.cput.repository.ISeatRepository;
 import za.ac.cput.util.Helper;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SeatRepository implements ISeatRepository{
+public class SeatRepository implements ISeatRepository {
     public static SeatRepository repository = null;
     public Set<Seat> seats = null;
 
@@ -27,10 +28,10 @@ public class SeatRepository implements ISeatRepository{
 
 
     @Override
-    public boolean create(Seat seat) {
+    public Seat create(Seat seat) {
         if (Helper.isNullOrEmpty(seat))
-            return false;
-        return seats.add(seat);
+            return null;
+        return seats.add(seat)?seat:null;
     }
 
     @Override
@@ -41,12 +42,12 @@ public class SeatRepository implements ISeatRepository{
     }
 
     @Override
-    public boolean update(Seat seat) {
+    public Seat update(Seat seat) {
 
         if (Helper.isNullOrEmpty(read(seat.getId())))
-            return false;
+            return null;
         seats.remove(read(seat.getId()));
-        return seats.add(seat);
+        return seats.add(seat)?seat:null;
     }
 
     @Override

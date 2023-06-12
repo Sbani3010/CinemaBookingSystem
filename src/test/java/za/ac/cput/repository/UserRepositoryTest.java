@@ -9,6 +9,7 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.User;
 import za.ac.cput.factory.UserFactory;
+import za.ac.cput.repository.impl.UserRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static za.ac.cput.util.TestObjects.user;
@@ -16,7 +17,7 @@ import static za.ac.cput.util.TestObjects.user;
 class UserRepositoryTest {
     @Test
     void create_test() {
-        assertEquals(true,UserRepository.getRepository().create(user));
+        assertEquals(true, UserRepository.getRepository().create(user));
     }
     @Test
     void read_test(){

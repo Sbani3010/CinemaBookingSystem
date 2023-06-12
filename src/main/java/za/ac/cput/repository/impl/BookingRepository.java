@@ -3,9 +3,10 @@
  Author: Twala Nthabiseng Celesta(221361936)
  Date: 04 April 2023
 */
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Booking;
+import za.ac.cput.repository.IBookingRepository;
 import za.ac.cput.util.Helper;
 
 import java.util.HashSet;
@@ -31,10 +32,10 @@ public class BookingRepository implements IBookingRepository {
     }
 
     @Override
-    public boolean create(Booking obj) {
+    public Booking create(Booking obj) {
         if (Helper.isNullOrEmpty(obj))
-            return false;
-        return bookings.add(obj);
+            return null;
+        return bookings.add(obj)?obj:null;
     }
 
     @Override
@@ -46,12 +47,12 @@ public class BookingRepository implements IBookingRepository {
     }
 
     @Override
-    public boolean update(Booking obj) {
+    public Booking update(Booking obj) {
         Booking oldBooking = read(obj.getId());
         if (Helper.isNullOrEmpty(oldBooking))
-        return false;
+            return null;
         bookings.remove(oldBooking);
-        return bookings.add(obj);
+        return bookings.add(obj)?obj:null;
     }
 
     @Override

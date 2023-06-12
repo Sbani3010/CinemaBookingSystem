@@ -3,13 +3,13 @@
  Author: Sbani Sithole (219446563)
 */
 
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Movie;
+import za.ac.cput.repository.IMovieRepository;
 import za.ac.cput.util.Helper;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class MovieRepository implements IMovieRepository {
@@ -28,10 +28,10 @@ public class MovieRepository implements IMovieRepository {
 
 
     @Override
-    public boolean create(Movie movie) {
+    public Movie create(Movie movie) {
         if (Helper.isNullOrEmpty(movie))
-            return false;
-        return movies.add(movie);
+            return null;
+        return movies.add(movie)?movie:null;
     }
 
     @Override
@@ -42,13 +42,13 @@ public class MovieRepository implements IMovieRepository {
     }
 
     @Override
-    public boolean update(Movie movie) {
+    public Movie update(Movie movie) {
 
         Movie oldMovie = read(movie.getId());
         if (Helper.isNullOrEmpty(oldMovie))
-            return false;
+            return null;
         movies.remove(oldMovie);
-        return movies.add(movie);
+        return movies.add(movie)?movie:null;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class MovieRepository implements IMovieRepository {
     }
 
     @Override
-    public List<Movie> getAll() {
+    public Set<Movie> getAll() {
         return null;
     }
 

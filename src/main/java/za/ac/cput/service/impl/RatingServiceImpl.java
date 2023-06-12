@@ -1,7 +1,7 @@
 package za.ac.cput.service.impl;
 
 import za.ac.cput.domain.Rating;
-import za.ac.cput.repository.RatingRepository;
+import za.ac.cput.repository.impl.RatingRepository;
 import za.ac.cput.service.RatingService;
 
 import java.util.Set;
@@ -13,7 +13,7 @@ public class RatingServiceImpl implements RatingService {
 
     private RatingServiceImpl()  {
         if (repository == null) {
-            repository =  RatingRepositoryImpl.getRepository();
+            repository =  RatingRepository.getRepository();
         }
 
     }

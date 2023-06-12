@@ -4,8 +4,8 @@
 */
 package za.ac.cput.repository;
 public interface IRepository <T,W>{
-    boolean create(T obj);
+    T create(T obj);
     T read(W id);
-    boolean update(T obj);
+    T update(T obj);
     boolean delete(W id);
 }

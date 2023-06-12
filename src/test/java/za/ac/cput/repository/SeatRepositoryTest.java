@@ -10,7 +10,7 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Seat;
 import za.ac.cput.factory.SeatFactory;
-import za.ac.cput.util.TestObjects;
+import za.ac.cput.repository.impl.SeatRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static za.ac.cput.util.TestObjects.seat;

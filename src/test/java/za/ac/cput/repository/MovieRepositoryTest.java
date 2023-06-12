@@ -5,6 +5,7 @@
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.repository.impl.MovieRepository;
 import za.ac.cput.util.TestObjects;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MovieRepositoryTest {
     @Test
     void create_test(){
-        assertEquals(true,MovieRepository.getRepository().create(TestObjects.movie));
+        assertEquals(true, MovieRepository.getRepository().create(TestObjects.movie));
     }
 
     @Test

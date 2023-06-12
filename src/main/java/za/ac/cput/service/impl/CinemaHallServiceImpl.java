@@ -1,8 +1,8 @@
-package za.ac.cput.Service.Impl;
+package za.ac.cput.service.impl;
 
-import za.ac.cput.Service.CinemaHallService;
+import za.ac.cput.service.CinemaHallService;
 import za.ac.cput.domain.CinemaHall;
-import za.ac.cput.repository.CinemaHallRepository;
+import za.ac.cput.repository.impl.CinemaHallRepository;
 
 import java.util.Set;
 
@@ -28,9 +28,8 @@ public class CinemaHallServiceImpl implements CinemaHallService {
     }
 
     @Override
-    public boolean update(CinemaHall cinemaHall) {
-        boolean updated= repository.update(cinemaHall);
-        return updated;
+    public CinemaHall update(CinemaHall cinemaHall) {
+        return repository.update(cinemaHall);
     }
 
     @Override
