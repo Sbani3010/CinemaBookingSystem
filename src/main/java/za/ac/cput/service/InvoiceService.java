@@ -3,7 +3,7 @@
 * * Author: Sinethemba Sithela 219112940
 * * Date: 11/06/2023
 * */
-package za.ac.cput.services;
+package za.ac.cput.service;
 
 import za.ac.cput.domain.Invoice;
 
