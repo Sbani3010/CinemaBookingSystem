@@ -1,8 +1,11 @@
 package za.ac.cput.service.impl;
 
 import za.ac.cput.domain.Seat;
+import za.ac.cput.domain.Snack;
 import za.ac.cput.repository.impl.SeatRepository;
 import za.ac.cput.service.SeatService;
+
+import java.util.Set;
 
 public class SeatServiceImpl implements SeatService {
     private static SeatServiceImpl seatService=null;
@@ -27,8 +30,8 @@ public class SeatServiceImpl implements SeatService {
 
 
     @Override
-    public boolean delete(String seatId) {
-        return repository.delete(seatId);
+    public Set<Seat> getAll() {
+        return repository.getAll();
     }
 
 
