@@ -1,9 +1,7 @@
 package za.ac.cput.service.impl;
 
-import za.ac.cput.domain.Rating;
 import za.ac.cput.domain.Ticket;
-import za.ac.cput.repository.RatingRepository;
-import za.ac.cput.repository.TicketRepository;
+import za.ac.cput.repository.impl.TicketRepository;
 import za.ac.cput.service.TicketService;
 
 import java.util.Set;
@@ -14,12 +12,9 @@ public class TicketServiceImpl implements TicketService {
     private TicketRepository repository=null;
 
     private TicketServiceImpl()  {
-        if (repository == null) {
-            repository =  TicketRepositoryImpl.getRepository();
-        }
-
+        if (repository==null)repository= TicketRepository.getRepository();
     }
-    public static RatingServiceImpl getService() {
+    public static TicketServiceImpl getService() {
         if (service == null) {
             service = new TicketServiceImpl();
         }
