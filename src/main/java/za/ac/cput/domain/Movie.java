@@ -10,7 +10,7 @@ public class Movie {
     private String description;
     private String genre;
     private String director;
-    private double length;
+    private double duration;
 
     private Movie() {
     }
@@ -20,7 +20,7 @@ public class Movie {
         this.title = builder.title;
         this.description = builder.description;
         this.director = builder.director;
-        this.length = builder.length;
+        this.duration = builder.duration;
         this.genre = builder.genre;
     }
 
@@ -44,8 +44,8 @@ public class Movie {
         return director;
     }
 
-    public double getLength() {
-        return length;
+    public double getDuration() {
+        return duration;
     }
 
     public static class Builder {
@@ -54,7 +54,7 @@ public class Movie {
         private String description;
         private String genre;
         private String director;
-        private double length;
+        private double duration;
 
         public Builder setId(String id) {
             this.id = id;
@@ -81,8 +81,8 @@ public class Movie {
             return this;
         }
 
-        public Builder setLength(double length) {
-            this.length = length;
+        public Builder setDuration(double duration) {
+            this.duration = duration;
             return this;
         }
 
@@ -92,7 +92,7 @@ public class Movie {
             this.description = movie.description;
             this.genre = movie.genre;
             this.director = movie.director;
-            this.length = movie.length;
+            this.duration = movie.duration;
             return this;
         }
 

@@ -16,7 +16,7 @@ public class MovieFactory {
                 .setDescription(description)
                 .setGenre(genre)
                 .setDirector(director)
-                .setLength(length)
+                .setDuration(length)
                 .setId(Helper.generateId()).build();
     }
 }
