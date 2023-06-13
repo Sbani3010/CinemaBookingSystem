@@ -2,10 +2,11 @@ package za.ac.cput.service.impl;
 
 import za.ac.cput.domain.ShowTime;
 import za.ac.cput.repository.impl.ShowTimeRepository;
+import za.ac.cput.service.ShowTimeService;
 
 import java.util.Set;
 
-public class ShowTimeServiceImpl implements ShowTimeService{
+public class ShowTimeServiceImpl implements ShowTimeService {
     private static ShowTimeServiceImpl showTimeService = null;
     private ShowTimeRepository repository=null;
 
