@@ -22,9 +22,18 @@ public class CinemaHallServiceImpl implements CinemaHallService {
      return service;
   }
     @Override
+    public Set<CinemaHall> getAll() {
+        return repository.getAll();
+    }
+
+    @Override
     public CinemaHall create(CinemaHall cinemaHall) {
-        CinemaHall created=repository.create(cinemaHall);
-        return created;
+        return repository.create(cinemaHall);
+    }
+
+    @Override
+    public CinemaHall read(String s) {
+        return repository.read(s);
     }
 
     @Override
@@ -33,19 +42,7 @@ public class CinemaHallServiceImpl implements CinemaHallService {
     }
 
     @Override
-    public CinemaHall read(String id) {
-        CinemaHall readCinemaHall= repository.read(id);
-        return readCinemaHall;
-    }
-
-    @Override
-    public boolean delete(String id) {
-        boolean success = repository.delete(id);
-        return success;
-    }
-
-    @Override
-    public Set<CinemaHall> getAll() {
-        return repository.getAll();
+    public boolean delete(String s) {
+        return repository.delete(s);
     }
 }
