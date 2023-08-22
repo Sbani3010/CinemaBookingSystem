@@ -20,34 +20,27 @@ public class BookingServiceImpl implements BookingService {
         }
  return service;
     }
-
+    @Override
+    public Set<Booking> getAll() {
+        return repository.getAll();
+    }
 
     @Override
     public Booking create(Booking booking) {
-        Booking created=repository.create(booking);
-        return created;
+        return repository.create(booking);
+    }
+
+    @Override
+    public Booking read(String s) {
+        return repository.read(s);
     }
 
     @Override
     public Booking update(Booking booking) {
         return repository.update(booking);
-
     }
-
     @Override
-    public Booking read(String id) {
-        Booking readBooking= repository.read(id);
-        return readBooking;
-    }
-
-    @Override
-    public boolean delete(String id) {
-        boolean success = repository.delete(id);
-        return success;
-    }
-
-    @Override
-    public Set<Booking> getAll() {
-        return repository.getAll();
+    public boolean delete(String s) {
+        return repository.delete(s);
     }
 }
