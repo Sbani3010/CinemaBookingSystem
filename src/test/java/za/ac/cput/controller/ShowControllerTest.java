@@ -12,6 +12,7 @@ import za.ac.cput.domain.Show;
 import za.ac.cput.factory.ShowFactory;
 
 import java.io.IOException;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -19,7 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ShowControllerTest {
-    private static Show show = ShowFactory.createShow(23, "12/11/23","12:00","");
+    static Date date = new Date(2023,10,12);
+    private static Show show = ShowFactory.createShow(23,date ,"12:00");
     private final String baseURL = "http://localhost:8084/show/";
     private TestRestTemplate restTemplate;
     void create() throws IOException, InterruptedException{

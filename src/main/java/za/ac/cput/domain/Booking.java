@@ -1,13 +1,16 @@
 package za.ac.cput.domain;
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 public class Booking {
     @Id
+    @GeneratedValue
     private Integer bookingId;
     @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Show showId;
-    private String dateMade;
+    private Date dateMade;
     private int seatNum;
 
     protected Booking(){}
@@ -26,7 +29,7 @@ public class Booking {
         return showId;
     }
 
-    public String getDateMade() {
+    public Date getDateMade() {
         return dateMade;
     }
 
@@ -47,7 +50,7 @@ public class Booking {
     public static class Builder {
         private Integer bookingId;
         private Show showId;
-        private String dateMade;
+        private Date dateMade;
         private int seatNum;
 
         public Booking.Builder setBookingId(Integer bookingId) {
@@ -60,7 +63,7 @@ public class Booking {
             return this;
         }
 
-        public Booking.Builder setDateMade(String dateMade) {
+        public Booking.Builder setDateMade(Date dateMade) {
             this.dateMade = dateMade;
             return this;
         }

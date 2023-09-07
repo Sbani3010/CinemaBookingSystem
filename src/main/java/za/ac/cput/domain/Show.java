@@ -1,14 +1,18 @@
 package za.ac.cput.domain;
 import jakarta.persistence.*;
+
+import java.util.Date;
+
 @Entity
 public class Show {
     @Id
+    @GeneratedValue
     private Integer showId;
 
     private int roomNum;
     @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Movie movieId;
-    private String dateCreated;
+    private Date dateCreated;
     private String startTime;
     private String endTime;
 
@@ -19,7 +23,6 @@ public class Show {
         this.movieId = builder.movieId;
         this.dateCreated = builder.dateCreated;
         this.startTime = builder.startTime;
-        this.endTime = builder.endTime;
     }
 
     public int getShowId() {
@@ -34,16 +37,12 @@ public class Show {
         return movieId;
     }
 
-    public String getDateCreated() {
+    public Date getDateCreated() {
         return dateCreated;
     }
 
     public String getStartTime() {
         return startTime;
-    }
-
-    public String getEndTime() {
-        return endTime;
     }
 
     @Override
@@ -62,9 +61,8 @@ public class Show {
         private Integer showId;
         private int roomNum;
         private Movie movieId;
-        private String dateCreated;
+        private Date dateCreated;
         private String startTime;
-        private String endTime;
 
         public Show.Builder setShowId(Integer showId) {
             this.showId = showId;
@@ -78,16 +76,12 @@ public class Show {
             this.movieId = movieId;
             return this;
         }
-        public Show.Builder setDateCreated(String dateCreated) {
+        public Show.Builder setDateCreated(Date dateCreated) {
             this.dateCreated = dateCreated;
             return this;
         }
         public Show.Builder setStartTime(String startTime) {
             this.startTime = startTime;
-            return this;
-        }
-        public Show.Builder setEndTime(String endTime) {
-            this.endTime = endTime;
             return this;
         }
         public Show.Builder copy(Show show) {
@@ -96,7 +90,6 @@ public class Show {
             this.movieId = show.movieId;
             this.dateCreated= show.dateCreated;
             this.startTime = show.startTime;
-            this.endTime = show.endTime;
             return this;
         }
         public Show build(){

@@ -14,11 +14,14 @@ import za.ac.cput.factory.BookingFactory;
 
 
 import java.io.IOException;
+import java.util.Date;
+
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class BookingControllerTest {
-    private static Booking booking = BookingFactory.createBooking("1/06/23",34);
+    static Date date = new Date(2023,10,12);
+    private static Booking booking = BookingFactory.createBooking(date,34);
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseURL = "http://localhost:8084/booking/";
