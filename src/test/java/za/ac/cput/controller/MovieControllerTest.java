@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
+import za.ac.cput.domain.Cinema;
 import za.ac.cput.domain.Movie;
 import za.ac.cput.util.ApiRequest;
 import java.io.IOException;
@@ -29,5 +30,13 @@ private TestRestTemplate testRestTemplate;
             assertNotNull(responseEntity.getBody());
             System.out.println(list.get(i));
         }
+    }
+    @Test
+    void read() {
+        String url = baseUrl + "615656";
+        ResponseEntity<Movie> responseEntity = testRestTemplate.getForEntity(url,Movie.class);
+        assertNotNull(responseEntity);
+        assertNotNull(responseEntity.getBody());
+        System.out.println(responseEntity.getBody());
     }
 }

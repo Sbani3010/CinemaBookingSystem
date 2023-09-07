@@ -14,6 +14,8 @@ public class Movie {
     private String overview;
     private String posterImg;
     private String backdropImg;
+    private String releaseDate;
+    private double ratting;
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<Genre> genres=new ArrayList<>();
     protected Movie(){}
@@ -23,7 +25,9 @@ public class Movie {
         this.overview = builder.overview;
         this.posterImg = builder.posterImg;
         this.backdropImg = builder.backdropImg;
+        this.releaseDate=builder.releaseDate;
         this.genres = builder.genres;
+        this.ratting=builder.ratting;
     }
 
     public String getMovie_id() {
@@ -32,6 +36,10 @@ public class Movie {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
     }
 
     public String getOverview() {
@@ -48,6 +56,10 @@ public class Movie {
 
     public List<Genre> getGenres() {
         return genres;
+    }
+
+    public double getRatting() {
+        return ratting;
     }
 
     @Override
@@ -68,10 +80,17 @@ public class Movie {
         private String overview;
         private String posterImg;
         private String backdropImg;
+        private String releaseDate;
+        private double ratting;
         private List<Genre> genres=new ArrayList<>();
 
         public Builder setMovie_id(String movie_id) {
             this.movie_id = movie_id;
+            return this;
+        }
+
+        public Builder setRatting(double ratting) {
+            this.ratting = ratting;
             return this;
         }
 
@@ -82,6 +101,11 @@ public class Movie {
 
         public Builder setOverview(String overview) {
             this.overview = overview;
+            return this;
+        }
+
+        public Builder setReleaseDate(String releaseDate) {
+            this.releaseDate = releaseDate;
             return this;
         }
 
@@ -107,6 +131,7 @@ public class Movie {
             this.posterImg = movie.posterImg;
             this.backdropImg = movie.backdropImg;
             this.genres = movie.genres;
+            this.releaseDate=movie.releaseDate;
             return this;
         }
         public Movie build(){

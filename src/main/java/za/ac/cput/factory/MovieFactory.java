@@ -6,7 +6,7 @@ import za.ac.cput.domain.Movie;
 import java.util.List;
 
 public class MovieFactory {
-    public static Movie createMovie(String movie_id, String title, String overview, String posterImg, String backdropImg, List<Genre> genres) {
+    public static Movie createMovie(String movie_id, String title, String overview, String posterImg, String backdropImg,String releaseDate,double ratting, List<Genre> genres) {
         //Come back to fix conditions
         return new Movie.Builder().setMovie_id(movie_id)
                 .setTitle(title)
@@ -14,6 +14,8 @@ public class MovieFactory {
                 .setPosterImg(posterImg)
                 .setBackdropImg(backdropImg)
                 .setGenres(genres)
+                .setReleaseDate(releaseDate)
+                .setRatting(ratting)
                 .build();
     }
 }

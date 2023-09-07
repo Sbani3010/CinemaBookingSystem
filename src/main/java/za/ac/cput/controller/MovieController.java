@@ -21,4 +21,10 @@ public class MovieController {
     List<Movie> getAll() {
         return service.getAll();
     }
+
+    @GetMapping("/{id}")
+    Movie read(@PathVariable String id){
+        System.out.println(service.read(id));
+        return service.read(id);
+    }
 }

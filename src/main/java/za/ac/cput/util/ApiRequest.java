@@ -61,6 +61,8 @@ public class ApiRequest {
                 String overview = objectNode.get("overview").asText();
                 String poster_path = objectNode.get("poster_path").asText();
                 String backdrop_path = objectNode.get("backdrop_path").asText();
+                String releaseDate=objectNode.get("release_date").asText();
+                double ratting=objectNode.get("vote_average").asDouble();
                 JsonNode gArray = objectNode.get("genre_ids");
                 System.out.println("ID: "+id+" Name: "+name);
                 ArrayList<Genre> glist = new ArrayList<>();
@@ -72,7 +74,7 @@ public class ApiRequest {
                         }
                     }
                 }
-                list.add(MovieFactory.createMovie(id, name, overview, poster_path, backdrop_path, glist));
+                list.add(MovieFactory.createMovie(id, name, overview, poster_path, backdrop_path,releaseDate, ratting,glist));
 
             }
         } catch (IOException e) {
