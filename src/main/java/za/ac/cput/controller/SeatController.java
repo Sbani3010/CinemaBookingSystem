@@ -8,6 +8,7 @@ import za.ac.cput.service.SeatService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/seat")
 public class SeatController {
     @Autowired
@@ -30,6 +31,8 @@ public class SeatController {
 
     @PostMapping("/update")
     Seat update(@RequestBody Seat seat) {
-        return service.update(seat);
+        Seat x=new Seat.Builder().copy(seat).setReserved(true).build();
+        System.out.println(x);
+        return service.update(x);
     }
 }

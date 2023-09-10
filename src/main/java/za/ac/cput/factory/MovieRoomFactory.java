@@ -7,20 +7,20 @@ import za.ac.cput.domain.Seat;
 import java.util.List;
 
 public class MovieRoomFactory {
-    public static MovieRoom createRoom(boolean available, List<Seat> seats, Cinema cinema) {
+    public static MovieRoom createRoom(int roomNum,boolean available, List<Seat> seats) {
         return new MovieRoom.Builder()
-
                 .setAvailable(available)
                 .setSeats(seats)
-                .setCinema(cinema)
+                .setRoomNum(roomNum)
                 .build();
     }
-    public static MovieRoom createRoom(int id,boolean available, List<Seat> seats, Cinema cinema) {
+
+    public static MovieRoom createRoom(int id,int roomNum,boolean available, List<Seat> seats) {
         return new MovieRoom.Builder()
-                .setRoomNum(id)
+                .setRoomId(id)
+                .setRoomNum(roomNum)
                 .setAvailable(available)
                 .setSeats(seats)
-                .setCinema(cinema)
                 .build();
     }
 }

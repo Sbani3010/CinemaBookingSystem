@@ -8,23 +8,19 @@ import java.time.LocalDateTime;
 public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int seatId;
     private int seatNum;
     private boolean isReserved;
     private double price;
-    @ManyToOne
-//    @JoinColumn(name = "roomNum")
-    private MovieRoom movieRoom;
-
-
 
     protected Seat() {
     }
 
     public Seat(Builder builder) {
+        this.seatId=builder.seatId;
         this.seatNum= builder.seatNum;
         this.isReserved= builder.isReserved;
         this.price= builder.price;
-        this.movieRoom=builder.movieRoom;
     }
 
     public int getSeatNum() {
@@ -39,15 +35,25 @@ public class Seat {
         return price;
     }
 
-    public MovieRoom getMovieRoom() {
-        return movieRoom;
+    public int getSeatId() {
+        return seatId;
+    }
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "seatId=" + seatId +
+                ", seatNum=" + seatNum +
+                ", isReserved=" + isReserved +
+                ", price=" + price +
+                '}';
     }
 
     public static class Builder{
+        private int seatId;
         private int seatNum;
         private boolean isReserved;
         private double price;
-        private MovieRoom movieRoom;
 
         public Builder setSeatNum(int seatNum) {
             this.seatNum = seatNum;
@@ -55,7 +61,7 @@ public class Seat {
         }
 
         public Builder setReserved(boolean reserved) {
-            isReserved = reserved;
+            this.isReserved = reserved;
             return this;
         }
 
@@ -64,15 +70,15 @@ public class Seat {
             return this;
         }
 
-        public Builder setMovieRoom(MovieRoom movieRoom) {
-            this.movieRoom = movieRoom;
+        public Builder setSeatId(int seatId) {
+            this.seatId = seatId;
             return this;
         }
         public Builder copy(Seat seat){
             this.seatNum=seat.seatNum;
             this.price=seat.price;
             this.isReserved=seat.isReserved;
-            this.movieRoom=seat.movieRoom;
+            this.seatId=seat.seatId;
             return this;
         }
         public Seat build(){

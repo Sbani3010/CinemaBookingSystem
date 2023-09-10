@@ -28,7 +28,7 @@ public class SeatService implements ISeatService {
 
     @Override
     public Seat update(Seat seat) {
-        return this.repository.existsById(seat.getSeatNum()) ? this.repository.save(seat) : null;
+        return this.repository.existsById(seat.getSeatId()) ? this.repository.save(seat) : null;
     }
 
     @Override

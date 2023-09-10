@@ -21,8 +21,8 @@ class SeatControllerTest {
     @Autowired
     private TestRestTemplate testRestTemplate;
     private Cinema cinema= CinemaFactory.createCinema(123,null);
-    private MovieRoom movieRoom= MovieRoomFactory.createRoom(7,true,null,cinema);
-    private Seat seat= SeatFactory.createSeat(1,250,false,movieRoom);
+    private MovieRoom movieRoom= MovieRoomFactory.createRoom(1,7,true,null);
+    private Seat seat= SeatFactory.createSeat(1,250,false);
     private final String baseUrl = "http://localhost:8084/seat/";
     @Test
     void create() {

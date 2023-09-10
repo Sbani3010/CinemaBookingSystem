@@ -2,6 +2,8 @@ package za.ac.cput;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import za.ac.cput.service.MovieService;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +14,9 @@ import java.net.http.HttpResponse;
 import java.time.LocalDateTime;
 
 public class Play {
+
     public static void main(String[] args) {
+
 //        LocalDateTime dateTime=LocalDateTime.of(2023,10);
 //        ObjectMapper objectMapper = new ObjectMapper();
 //        HttpRequest request = HttpRequest.newBuilder()

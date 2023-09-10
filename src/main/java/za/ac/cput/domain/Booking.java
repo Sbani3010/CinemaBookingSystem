@@ -1,65 +1,73 @@
 package za.ac.cput.domain;
+
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Booking {
     @Id
-    @GeneratedValue
-    private Integer bookingId;
-    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Show showId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int bookingId;
+    @ManyToOne
+    private MovieShow movieShow;
     private Date dateMade;
-    private int seatNum;
+    @OneToMany
+    private List<Seat> seats;
 
-    protected Booking(){}
-    private Booking(Builder builder){
-        this.bookingId = builder.bookingId;
-        this.showId = builder.showId;
-        this.dateMade = builder.dateMade;
-        this.seatNum = builder.seatNum;
+    protected Booking() {
     }
 
-    public Integer getBookingId() {
+    private Booking(Builder builder) {
+        this.bookingId = builder.bookingId;
+        this.movieShow = builder.movieShow;
+        this.dateMade = builder.dateMade;
+        this.seats = builder.seats;
+    }
+
+    public int getBookingId() {
         return bookingId;
     }
 
-    public Show getShowId() {
-        return showId;
+
+    public MovieShow getMovieShow() {
+        return movieShow;
     }
 
     public Date getDateMade() {
         return dateMade;
     }
 
-    public int getSeatNum() {
-        return seatNum;
+    public List<Seat> getSeats() {
+        return seats;
     }
 
     @Override
     public String toString() {
         return "Booking{" +
-                "bookingId='" + bookingId + '\'' +
-                ", showId='" + showId + '\'' +
-                ", dateMade='" + dateMade + '\'' +
-                ", seatNum=" + seatNum +
+                "bookingId=" + bookingId +
+                ", movieShow=" + movieShow +
+                ", dateMade=" + dateMade +
+                ", seats=" + seats +
                 '}';
     }
 
     public static class Builder {
-        private Integer bookingId;
-        private Show showId;
+        private int bookingId;
+        private MovieShow movieShow;
         private Date dateMade;
-        private int seatNum;
+        private List<Seat> seats;
 
-        public Builder setBookingId(Integer bookingId) {
+        public Builder setBookingId(int bookingId) {
             this.bookingId = bookingId;
             return this;
         }
 
-        public Builder setShowId(Show showId) {
-            this.showId = showId;
+
+        public Builder setMovieShow(MovieShow movieShow) {
+            this.movieShow = movieShow;
             return this;
         }
 
@@ -67,19 +75,21 @@ public class Booking {
             this.dateMade = dateMade;
             return this;
         }
-        public Builder setSeatNum(int seatNum) {
-            this.seatNum = seatNum;
+
+        public Builder setSeats(List<Seat> seatNum) {
+            this.seats = seatNum;
             return this;
         }
 
         public Builder copy(Booking booking) {
             this.bookingId = booking.bookingId;
-            this.showId = booking.showId;
+            this.movieShow = booking.movieShow;
             this.dateMade = booking.dateMade;
-            this.seatNum= booking.seatNum;
+            this.seats = booking.seats;
             return this;
         }
-        public Booking build(){
+
+        public Booking build() {
             return new Booking(this);
         }
     }

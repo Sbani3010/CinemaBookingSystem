@@ -1,26 +1,28 @@
 package za.ac.cput.domain;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
-public class Show {
+public class MovieShow {
     @Id
-    @GeneratedValue
-    private Integer showId;
-
-    private int roomNum;
-    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Movie movieId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int showId;
+    @ManyToOne
+    @JoinColumn(name = "room_id")
+    private MovieRoom movieRoom;
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
+    private Movie movie;
     private Date dateCreated;
     private String startTime;
-    private String endTime;
 
-    protected Show(){}
-    private Show(Builder builder){
+
+    protected MovieShow(){}
+    private MovieShow(Builder builder){
         this.showId = builder.showId;
-        this.roomNum = builder.roomNum;
-        this.movieId = builder.movieId;
+        this.movieRoom = builder.movieRoom;
+        this.movie = builder.movie;
         this.dateCreated = builder.dateCreated;
         this.startTime = builder.startTime;
     }
@@ -29,12 +31,12 @@ public class Show {
         return showId;
     }
 
-    public int getRoomNum() {
-        return roomNum;
+    public MovieRoom getRoom() {
+        return movieRoom;
     }
 
-    public Movie getMovieId() {
-        return movieId;
+    public Movie getMovie() {
+        return movie;
     }
 
     public Date getDateCreated() {
@@ -45,22 +47,26 @@ public class Show {
         return startTime;
     }
 
+
+    public MovieRoom getMovieRoom() {
+        return movieRoom;
+    }
+
     @Override
     public String toString() {
-        return "Show{" +
-                "showId='" + showId + '\'' +
-                ", roomNum=" + roomNum +
-                ", movieId='" + movieId + '\'' +
-                ", dateCreated='" + dateCreated + '\'' +
+        return "MovieShow{" +
+                "showId=" + showId +
+                ", movieRoom=" + movieRoom +
+                ", movie=" + movie +
+                ", dateCreated=" + dateCreated +
                 ", startTime='" + startTime + '\'' +
-                ", endTime='" + endTime + '\'' +
                 '}';
     }
 
     public static class Builder {
-        private Integer showId;
-        private int roomNum;
-        private Movie movieId;
+        private int showId;
+        private MovieRoom movieRoom;
+        private Movie movie;
         private Date dateCreated;
         private String startTime;
 
@@ -68,12 +74,12 @@ public class Show {
             this.showId = showId;
             return this;
         }
-        public Builder setRoomNum(int roomNum) {
-            this.roomNum = roomNum;
+        public Builder setMovieRoom(MovieRoom movieRoom) {
+            this.movieRoom = movieRoom;
             return this;
         }
-        public Builder setMovieId(Movie movieId) {
-            this.movieId = movieId;
+        public Builder setMovie(Movie movie) {
+            this.movie = movie;
             return this;
         }
         public Builder setDateCreated(Date dateCreated) {
@@ -84,16 +90,16 @@ public class Show {
             this.startTime = startTime;
             return this;
         }
-        public Builder copy(Show show) {
+        public Builder copy(MovieShow show) {
             this.showId = show.showId;
-            this.roomNum = show.roomNum;
-            this.movieId = show.movieId;
+            this.movieRoom = show.movieRoom;
+            this.movie = show.movie;
             this.dateCreated= show.dateCreated;
             this.startTime = show.startTime;
             return this;
         }
-        public Show build(){
-            return new Show(this);
+        public MovieShow build(){
+            return new MovieShow(this);
         }
     }
 }

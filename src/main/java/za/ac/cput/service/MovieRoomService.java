@@ -25,7 +25,7 @@ public class MovieRoomService implements IMovieRoomService{
 
     @Override
     public MovieRoom update(MovieRoom movieRoom) {
-        return this.repository.existsById(movieRoom.getRoomNum()) ? this.repository.save(movieRoom) : null;
+        return this.repository.existsById(movieRoom.getRoom_id()) ? this.repository.save(movieRoom) : null;
     }
 
     @Override

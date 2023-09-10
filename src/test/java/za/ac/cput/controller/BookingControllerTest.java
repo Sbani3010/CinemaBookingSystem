@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class BookingControllerTest {
     static Date date = new Date(2023,10,12);
-    private static Booking booking = BookingFactory.createBooking(date,34);
+    private static Booking booking = BookingFactory.createBooking(date,null,null);
     @Autowired
     private TestRestTemplate restTemplate;
     private final String baseURL = "http://localhost:8084/booking/";
@@ -46,7 +46,7 @@ class BookingControllerTest {
     }
     @Test
     void update() throws IOException, InterruptedException{
-        Booking updatedBooking = new Booking.Builder().copy(booking).setSeatNum(12).build();
+        Booking updatedBooking = new Booking.Builder().copy(booking).setSeats(null).build();
         String url = baseURL + "/update";
         System.out.println("URL: " + url);
         System.out.println("Updated Data: " + updatedBooking);

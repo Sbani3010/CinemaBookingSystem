@@ -7,6 +7,7 @@ import za.ac.cput.service.GenreService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/genre")
 public class GenreController {
     @Autowired

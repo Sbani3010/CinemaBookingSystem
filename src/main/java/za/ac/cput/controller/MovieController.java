@@ -7,6 +7,7 @@ import za.ac.cput.service.MovieService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/movie")
 public class MovieController {
     @Autowired

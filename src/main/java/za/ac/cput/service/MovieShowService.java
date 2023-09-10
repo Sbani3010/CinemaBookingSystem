@@ -1,31 +1,30 @@
 package za.ac.cput.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.domain.Movie;
-import za.ac.cput.domain.Show;
-import za.ac.cput.repository.ShowRepository;
+import za.ac.cput.domain.MovieShow;
+import za.ac.cput.repository.MovieShowRepository;
 import java.util.List;
 @Service
-public class ShowService implements IShowService {
-    private ShowRepository repository;
+public class MovieShowService implements IShowService {
+    private MovieShowRepository repository;
 
     @Autowired
-    private ShowService(ShowRepository showRepository) {
-        this.repository = showRepository;
+    private MovieShowService(MovieShowRepository movieShowRepository) {
+        this.repository = movieShowRepository;
     }
 
     @Override
-    public Show create(Show show) {
+    public MovieShow create(MovieShow show) {
         return this.repository.save(show);
     }
 
     @Override
-    public Show read(Integer id) {
+    public MovieShow read(Integer id) {
         return this.repository.findById(id).orElse(null);
     }
 
     @Override
-    public Show update(Show show) {
+    public MovieShow update(MovieShow show) {
         return this.repository.existsById(show.getShowId()) ? this.repository.save(show) : null;
     }
 
@@ -38,7 +37,7 @@ public class ShowService implements IShowService {
         return false;
     }
     @Override
-    public List<Show> getAll() {
+    public List<MovieShow> getAll() {
         return this.repository.findAll();
     }
 

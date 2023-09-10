@@ -6,6 +6,7 @@ import za.ac.cput.domain.MovieRoom;
 import za.ac.cput.service.MovieRoomService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/rooms")
 public class MovieRoomController {
     @Autowired
@@ -25,4 +26,5 @@ public class MovieRoomController {
     MovieRoom read(@PathVariable Integer id) {
         return service.read(id);
     }
+
 }

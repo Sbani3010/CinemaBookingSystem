@@ -5,13 +5,15 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class Cinema {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cinemaId;
-    @OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_cinema_id",referencedColumnName = "cinemaId")
     private List<MovieRoom> movieRooms=new ArrayList<>();
     protected Cinema() {
     }

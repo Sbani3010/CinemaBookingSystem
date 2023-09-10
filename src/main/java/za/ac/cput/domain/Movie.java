@@ -8,6 +8,7 @@ import java.util.List;
 @Entity
 public class Movie {
     @Id
+    @Column(name = "movie_id")
     private String movie_id;
     private String title;
     @Column(length = 8000)
@@ -18,6 +19,9 @@ public class Movie {
     private double ratting;
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<Genre> genres=new ArrayList<>();
+
+//    @OneToMany(mappedBy = "movie",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private List<MovieShow> shows;
     protected Movie(){}
     private Movie(Builder builder){
         this.movie_id = builder.movie_id;

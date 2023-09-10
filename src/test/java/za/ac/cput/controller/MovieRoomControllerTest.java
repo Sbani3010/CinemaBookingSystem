@@ -25,7 +25,7 @@ class MovieRoomControllerTest {
     private List<MovieRoom> movieRooms=new ArrayList<>();
     private Cinema cinema= CinemaFactory.createCinema(123,movieRooms);
     private List<Seat> seats=new ArrayList<>();
-    private MovieRoom movieRoom= MovieRoomFactory.createRoom(true,seats,cinema);
+    private MovieRoom movieRoom= MovieRoomFactory.createRoom(1,true,seats);
 
     private final String baseUrl = "http://localhost:8084/rooms/";
     @Test

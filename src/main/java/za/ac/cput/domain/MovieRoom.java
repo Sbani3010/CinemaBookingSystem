@@ -9,14 +9,13 @@ import java.util.List;
 public class MovieRoom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "room_id")
+    private  int room_id;
     private int roomNum;
     private boolean available;
-    @OneToMany(mappedBy = "movieRoom", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_room_id",referencedColumnName = "room_id")
     private List<Seat> seats=new ArrayList<>();
-    @ManyToOne
-    @JoinColumn(name = "cinema_id")
-    private Cinema cinema;
-
     protected MovieRoom() {
     }
 
@@ -24,7 +23,7 @@ public class MovieRoom {
         this.roomNum = builder.roomNum;
         this.available = builder.available;
         this.seats = builder.seats;
-        this.cinema = builder.cinema;
+        this.room_id=builder.roomId;
     }
 
     public int getRoomNum() {
@@ -39,15 +38,31 @@ public class MovieRoom {
         return seats;
     }
 
-    public Cinema getCinema() {
-        return cinema;
+
+//    public int getRoomId() {
+//        return room_id;
+//    }
+
+
+    public int getRoom_id() {
+        return room_id;
+    }
+
+    @Override
+    public String toString() {
+        return "MovieRoom{" +
+                "room_id=" + room_id +
+                ", roomNum=" + roomNum +
+                ", available=" + available +
+                ", seats=" + seats +
+                '}';
     }
 
     public static class Builder {
+        private int roomId;
         private int roomNum;
         private boolean available;
         private List<Seat> seats;
-        private Cinema cinema;
 
         public Builder setRoomNum(int roomNum) {
             this.roomNum = roomNum;
@@ -64,8 +79,8 @@ public class MovieRoom {
             return this;
         }
 
-        public Builder setCinema(Cinema cinema) {
-            this.cinema = cinema;
+        public Builder setRoomId(int roomId) {
+            this.roomId = roomId;
             return this;
         }
 
@@ -73,7 +88,7 @@ public class MovieRoom {
             this.roomNum = movieRoom.roomNum;
             this.available = movieRoom.available;
             this.seats = movieRoom.seats;
-            this.cinema = movieRoom.cinema;
+            this.roomId=movieRoom.room_id;
             return this;
         }
 
