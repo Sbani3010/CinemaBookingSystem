@@ -15,6 +15,7 @@ import za.ac.cput.service.UserService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/user")
 public class UserController {
     @Autowired
